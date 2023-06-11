@@ -1,7 +1,5 @@
-#import googleapiclient.discovery
+#import all the libraries needed
 from googleapiclient.discovery import build
-
-# [File handling libraries]
 import json
 import re
 import certifi
@@ -12,17 +10,14 @@ import sqlalchemy
 from googleapiclient.errors import HttpError
 from sqlalchemy import create_engine
 import pymysql
-# [pandas, numpy]
 import pandas as pd
 import numpy as np
-
-# [Dash board libraries]
 import streamlit as st
 import plotly.express as px
 from PIL import Image
 #Page Layout
 st.set_page_config(layout='wide')
-image_file='youtube_img.png'
+image_file='' # your image file
 with open(image_file, "rb") as image_file:
     encoded_string = base64.b64encode(image_file.read())
 st.markdown(
@@ -51,7 +46,7 @@ with col1:
         # YouTube API Access
         api_service_name = 'youtube'
         api_version = 'v3'
-        api_key = 'AIzaSyAoxJQfIJWLyWIcssAAY4Ex50eyxJneWRE'
+        api_key = ''  # enter your youtube api key
         youtube = build(api_service_name, api_version, developerKey=api_key)
         #Function to extract the channel data
         def get_channel_data(youtube,channel_id):
@@ -198,12 +193,12 @@ with col1:
         # MongoDB connection and storing the data in mongodb database
         ca = certifi.where()
         client = pymongo.MongoClient(
-            'mongodb+srv://Venktesh:9818@cluster0.fdeugka.mongodb.net/?retryWrites=true',tlsCAFile=ca)
+            '',tlsCAFile=ca) # enter your mongodb server url in ''
         # Use of pre-existing database
-        mydb = client['e14m7']
+        mydb = client[''] # enter your mongodb database name in ''
 
         # create a collection
-        collection = mydb['Youtube_data']
+        collection = mydb[''] # enter your collection name in '' 
 
         # define the data to insert
         final_output_data = {
@@ -224,13 +219,13 @@ with col2:
     ca = certifi.where()
     # Connection to Mongodb sever
     client = pymongo.MongoClient(
-        "mongodb+srv://Venktesh:9818@cluster0.fdeugka.mongodb.net/?retryWrites=true", tlsCAFile=ca)
+        "", tlsCAFile=ca)   # enter your mongodb server url in ""
 
     # create a database or use existing one
-    mydb = client['e14m7']
+    mydb = client['']   # enter your mongodb database name in ''
 
     # create a collection
-    collection = mydb['Youtube_data']
+    collection = mydb['']   # enter your collection name in '' 
 
     # Collect all document names and give them
     document_names = []
@@ -315,20 +310,20 @@ with col2:
 
         # Connection to the MySQL server
         connect = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="7011",
+            host="enter host name",
+            user="enter user name",
+            password="enter the password",
             auth_plugin="mysql_native_password"
         )
         #Creation of new database in mysql server or use the existing one
         mycursor = connect.cursor(buffered=True)
-        mycursor.execute("CREATE DATABASE IF NOT EXISTS Youtube_db")
+        mycursor.execute("CREATE DATABASE IF NOT EXISTS database_name")
 
         # Close the cursor and database connection
         mycursor.close()
         connect.close()
         # Connection to sql database created
-        engine = sqlalchemy.create_engine('mysql+mysqlconnector://root:7011@localhost/Youtube_db?auth_plugin=mysql_native_password')
+        engine = sqlalchemy.create_engine('mysql+mysqlconnector://enter host name:enter password@enter host name/enter the databse name created?auth_plugin=mysql_native_password')
         # Using pandas to insert the created dataframes to the sql database table
         # Channel data to SQL
         channel_df.to_sql('channel', engine, if_exists='append', index=False,
@@ -374,7 +369,7 @@ Check_channel = st.checkbox('**:red[SELECT] CHANNEL :red[FOR] ANALYSIS!!**')
 
 if Check_channel:
     # Database Connection
-    engine = create_engine('mysql+mysqlconnector://root:7011@localhost/Youtube_db', echo=False)
+    engine = create_engine('mysql+mysqlconnector:///enter host name:enter password@enter host name/enter the databse name created', echo=False)
     # Executing SQL query to extract channel names
     query = "SELECT Channel_Name FROM channel;"
     results = pd.read_sql(query, engine)
@@ -400,7 +395,7 @@ question_tosql = st.selectbox('**Select your Question**',
                               key='collection_question')
 
 # SQL connection created
-connect_for_question = pymysql.connect(host='localhost', user='root', password='7011', db='Youtube_db')
+connect_for_question = pymysql.connect(host='enter host name', user='enter user name', password='enter password', db='enter database name')
 cursor = connect_for_question.cursor()
 
 # Q1
