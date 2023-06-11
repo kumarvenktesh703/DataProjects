@@ -1,6 +1,6 @@
 This project aims to develop a user-friendly Streamlit application that utilizes the Google API to extract information on a YouTube channel, stores it in a MongoDB database, migrates it to a SQL data warehouse, and enables users to search for channel details and join tables to view data in the Streamlit app
 
-STEPS TO PROGRESS FOR THE PROJECT:-
+STEPS TO PROGRESS FOR THE PROJECT-
 ------Import all the libraries needed for this project and install them using pip command
       # from googleapiclient.discovery import build,import json,import re,import certifi,import pymongo,import base64importmysql.connector,
         import sqlalchemy,from googleapiclient.errors import HttpError,from sqlalchemy import create_engine,import pymysql,import pandas as         pd,import streamlit as st,import plotly.express as px.
