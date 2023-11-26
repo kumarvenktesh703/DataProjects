@@ -6,11 +6,17 @@ a) Import all the libraries needed for this project and install them using pip c
          base64importmysql.connector,
        import sqlalchemy,from googleapiclient.errors import HttpError,from sqlalchemy import create_engine,import pymysql,import pandas 
        as pd,import streamlit as st,import plotly.express as px.
+       
 b) Creation Of Page Layout,Title declaration and headers along with background image.
+
 c) Collection of data from user using youtube API key.
+
 d) Definition and Calling of different functions for channel details,videos details,videos ids,time duration of videos and comments           extraction.
+
 e) MongoDB connection and storing the data in mongodb database using mongodb connection url.
+
 f) Tranfering the data from mongodb database collection to sql database tables using dataframes created using pandas.
+
 g) Analysis of the available channel data using the dropdown menu habing different questions
       1.What are the names of all the videos and their corresponding channels?
       2.Which channels have the most number of videos, and how many videos do they have?
