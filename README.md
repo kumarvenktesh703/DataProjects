@@ -20,15 +20,10 @@ f) Tranfering the data from mongodb database collection to sql database tables u
 g) Analysis of the available channel data using the dropdown menu habing different questions
 
       1.What are the names of all the videos and their corresponding channels?
-      
       2.Which channels have the most number of videos, and how many videos do they have?
-      
       3.What are the top 10 most viewed videos and their respective channels?
-      
       4.How many comments were made on each video, and what are their corresponding video names?
-      
       5.Which videos have the highest number of likes, and what are their corresponding channel names?
-      
       6.What is the total number of likes and dislikes for each video, and what are their corresponding video names?
       7.What is the total number of views for each channel, and what are their corresponding channel names?
       8.What are the names of all the channels that have published videos in the year 2022?
