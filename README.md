@@ -1,3 +1,7 @@
+
+
+https://github.com/kumarvenktesh703/DataYoutubeProject/assets/128800146/0b660b2c-8267-4a40-9b3f-0dab55cd52b5
+
 This project aims to develop a user-friendly Streamlit application that utilizes the Google API to extract information on a YouTube channel, stores it in a MongoDB database, migrates it to a SQL data warehouse, and enables users to search for channel details and join tables to view data in the Streamlit app
 
 # STEPS TO PROGRESS FOR THE PROJECT:-
